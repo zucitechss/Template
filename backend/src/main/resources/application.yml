@@ -1,0 +1,61 @@
+spring:
+  # DataSource configuration for connecting to the MySQL database
+  datasource:
+    url: jdbc:mysql://localhost:3306/fullstack_real_project  # MySQL database URL
+    username: root  # Database username
+    password: root@123  # Database password
+    driver-class-name: com.mysql.cj.jdbc.Driver # JDBC driver for MySQL
+
+  # JPA (Java Persistence API) configuration for Hibernate
+  jpa:
+    hibernate:
+      ddl-auto: update  # Automatically update the database schema on startup (use 'none' or 'validate' for production)
+    show-sql: true  # Display SQL queries in the log
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect  # Hibernate dialect for MySQL 8
+        format_sql: true  # Format SQL queries for readability
+        use_sql_comments: true  # Include comments in the generated SQL queries
+
+  # Email configuration for sending emails via SMTP (Gmail in this case)
+  mail:
+    host: smtp.gmail.com  # SMTP host for Gmail
+    port: 587  # Port for sending emails (587 is used for TLS)
+    username: testApplication009@gmail.com  # Sender's email address
+    password: ${MAIL_PASSWORD}  # Password for email (stored as an environment variable)
+    properties:
+      mail:
+        smtp:
+          auth: true  # Enable authentication for the SMTP server
+          starttls:
+            enable: true  # Enable TLS encryption for secure email transmission
+    from: testApplication009@gmail.com  # Default 'from' email address for sending emails
+
+  # Session configuration for using JDBC as the session store
+  session:
+    store-type: jdbc  # Use JDBC for session storage
+    jdbc:
+      initialize-schema: always  # Always initialize the session schema on startup (good for development)
+    timeout: 30m  # Session timeout set to 30 minutes
+
+  # SQL initialization settings for schema management
+  sql:
+    init:
+      mode: always  # Ensure the SQL schema is initialized on application startup (use 'never' or 'embedded' in production)
+
+# Server configuration related to session cookies
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: true  # Prevent client-side JavaScript from accessing session cookies
+        secure: false  # Set to 'true' if the application uses HTTPS (secure cookies)
+
+# Logging configuration to set log levels for different Spring components
+logging:
+  level:
+    org.springframework.security: DEBUG  # Log security-related activities at DEBUG level
+    org.springframework.web: DEBUG  # Log web requests and responses at DEBUG level
+    org.hibernate: DEBUG  # Log Hibernate-related activities (e.g., SQL generation, database interactions) at DEBUG level
+  #file:
+    #name: logs/myapp.log  # Log file location (relative to the project root directory)

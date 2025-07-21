@@ -1,0 +1,77 @@
+# ========== FRONTEND IGNORE RULES ==========
+# dependencies
+/frontend/node_modules
+/frontend/.pnp
+/frontend/.pnp.js
+
+# testing
+/frontend/coverage
+
+# next.js
+/frontend/.next/
+/frontend/out/
+
+# production
+/frontend/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+/frontend/.env*.local
+
+# vercel
+/frontend/.vercel
+
+# typescript
+/frontend/*.tsbuildinfo
+/frontend/next-env.d.ts
+
+# ========== BACKEND IGNORE RULES ==========
+
+# build output
+/backend/target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.backend/.idea/modules.xml
+.backend/.idea/jarRepositories.xml
+.backend/.idea/compiler.xml
+.backend/.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# macOS
+.DS_Store
