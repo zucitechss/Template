@@ -75,3 +75,8 @@ build/
 
 # macOS
 .DS_Store
+
+
+# Ignore logs
+*.log
+backend/src/main/logs/
