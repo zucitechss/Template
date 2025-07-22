@@ -17,18 +17,10 @@ const Footer = () => {
         className="footer"
       >
         <Box>
-          <Typography>
-            Copyright  {' '}
-            <strong>Admash</strong> is Proudly Owned by {' '}
-            <Link
-              href="https://envytheme.com/"
-              target="_blank" 
-              underline="none"
-              rel="noreferrer"
-            >
-              EnvyTheme
-            </Link>
-          </Typography>
+        <Typography>
+          © {new Date().getFullYear()} <strong>ZuciTech</strong> – Simplify. Succeed. Accelerate. Deliver.
+        </Typography>
+
         </Box>
       </Stack>
     </>

@@ -7,10 +7,18 @@ import TopNavbar from "@/components/Layouts/TopNavbar";
 import Footer from "@/components/Layouts/Footer";
 import ScrollToTop from "../components/Layouts/ScrollToTop";
 import ControlPanelModal from "../components/Layouts/ControlPanelModal";
+import { useEffect} from "react";
 
 const LayoutProvider = ({ children }) => {
   const [active, setActive] = useState(false);
+  const [userRole, setUserRole] = useState(null); // role state
   const pathname = usePathname();
+
+  useEffect(() => {
+    // Get role from localStorage
+    const roleFromStorage = localStorage.getItem("role");
+    setUserRole(roleFromStorage);
+  }, []);
 
   const toogleActive = () => {
     setActive(!active);
@@ -29,7 +37,8 @@ const LayoutProvider = ({ children }) => {
           <>
             <TopNavbar toogleActive={toogleActive} />
 
-            <LeftSidebar toogleActive={toogleActive} />
+            {/* Pass the role to the sidebar */}
+            <LeftSidebar toogleActive={toogleActive} userRole={userRole} />
           </>
         )}
 
